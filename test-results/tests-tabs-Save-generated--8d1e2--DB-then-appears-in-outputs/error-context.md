@@ -1,0 +1,100 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Go to home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - text: LTU CWA
+      - navigation "Primary" [ref=e6]:
+        - link "Home" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - text: 🏠Home
+        - link "Tabs" [ref=e8] [cursor=pointer]:
+          - /url: /tabs
+          - text: 🧩Tabs
+        - link "Court Room" [ref=e9] [cursor=pointer]:
+          - /url: /courtroom
+          - text: ⚖️Court Room
+        - link "About" [ref=e10] [cursor=pointer]:
+          - /url: /about
+          - text: ℹ️About
+      - generic "Student" [ref=e11]:
+        - strong [ref=e12]: "21929088"
+      - button "Toggle theme" [ref=e13] [cursor=pointer]: ☀️ Light
+      - button "Open mobile menu" [ref=e14] [cursor=pointer]: ☰ Menu
+    - generic "Breadcrumbs" [ref=e15]:
+      - link "Home" [ref=e17] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e18]:
+        - text: /
+        - link "tabs" [ref=e19] [cursor=pointer]:
+          - /url: /tabs
+  - main [ref=e20]:
+    - generic [ref=e21]:
+      - heading "Tabs Page" [level=1] [ref=e22]
+      - paragraph [ref=e23]:
+        - text: Up to 15 tabs. Change headings, update content, stored in
+        - code [ref=e24]: localStorage
+        - text: . Generate HTML + JS output with inline CSS only.
+      - generic [ref=e25]:
+        - 'button "Preset: 1 tab" [ref=e26] [cursor=pointer]'
+        - 'button "Preset: 3 tabs" [ref=e27] [cursor=pointer]'
+        - 'button "Preset: 5 tabs" [ref=e28] [cursor=pointer]'
+      - region "Tabs editor" [ref=e29]:
+        - generic [ref=e30]:
+          - generic [ref=e31]:
+            - strong [ref=e33]: Tab 1
+            - generic [ref=e34]:
+              - button "Rename" [ref=e35] [cursor=pointer]
+              - button "- Remove" [ref=e36] [cursor=pointer]
+          - generic [ref=e37]:
+            - generic [ref=e38]: Heading
+            - textbox "Heading" [ref=e39]: Tab 1
+          - generic [ref=e40]:
+            - generic [ref=e41]: Content
+            - textbox "Content" [ref=e42]: Hello from Tab 1
+        - generic [ref=e43]:
+          - generic [ref=e44]:
+            - strong [ref=e46]: Tab 2
+            - generic [ref=e47]:
+              - button "Rename" [ref=e48] [cursor=pointer]
+              - button "- Remove" [ref=e49] [cursor=pointer]
+          - generic [ref=e50]:
+            - generic [ref=e51]: Heading
+            - textbox "Heading" [ref=e52]: Tab 2
+          - generic [ref=e53]:
+            - generic [ref=e54]: Content
+            - textbox "Content" [ref=e55]: Content 2
+      - generic [ref=e56]:
+        - button "+ Add Tab" [active] [ref=e57] [cursor=pointer]
+        - button "Reset" [ref=e58] [cursor=pointer]
+        - generic [ref=e59]:
+          - text: "Current:"
+          - strong [ref=e60]: "2"
+          - text: / 15
+      - separator [ref=e61]
+      - heading "Output" [level=2] [ref=e62]
+      - paragraph [ref=e63]:
+        - text: Click
+        - strong [ref=e64]: Generate Output
+        - text: to create HTML code. Then copy and paste into a blank
+        - code [ref=e65]: Hello.html
+        - text: file.
+      - generic [ref=e66]:
+        - button "Generate Output" [ref=e67] [cursor=pointer]
+        - button "Copy" [disabled] [ref=e68] [cursor=pointer]
+        - button "💾 Save to DB" [disabled] [ref=e69] [cursor=pointer]
+        - button "📂 View Outputs" [ref=e70] [cursor=pointer]
+      - textbox "Generated HTML output" [ref=e71]
+  - contentinfo [ref=e72]:
+    - generic [ref=e74]:
+      - generic [ref=e75]: "© 2025 · Student: Minh Hieu Hoang (21929088) · Date: 10/22/2025"
+      - generic [ref=e76]: Built for Assignment 1 (Front-end part). Accessibility friendly.
+  - button "Open Next.js Dev Tools" [ref=e82] [cursor=pointer]:
+    - img [ref=e83]
+  - alert [ref=e86]
+```

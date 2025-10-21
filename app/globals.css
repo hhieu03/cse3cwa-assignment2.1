@@ -1,0 +1,87 @@
+/* app/globals.css */
+
+/* Reset + focus ring để đạt Accessibility */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+:focus-visible { outline: 3px solid #6aa9ff; outline-offset: 2px; }
+
+/* Theme bằng data-attribute để phép Dark/Light + lưu localStorage */
+html[data-theme="light"] {
+  --bg: #ffffff; --fg: #111111; --muted: #666666; --card: #f6f6f6; --link: #1e66ff;
+}
+html[data-theme="dark"] {
+  --bg: #0e1012; --fg: #e8e8e8; --muted: #9aa0a6; --card: #171a1d; --link: #7aa2ff;
+}
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.5;
+}
+
+/* Layout khung cơ bản */
+.container { max-width: 1080px; margin: 0 auto; padding: 1rem; }
+
+/* Header + Nav */
+.header {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--bg); border-bottom: 1px solid rgba(127,127,127,.2);
+}
+.nav {
+  display: flex; align-items: center; justify-content: space-between; gap: .5rem;
+}
+.nav-links { display: flex; gap: .75rem; align-items: center; }
+
+/* Link */
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Hamburger icon với transform (điểm rubric) */
+.hamburger {
+  width: 36px; height: 36px; border: none; background: transparent; cursor: pointer;
+  display: grid; place-content: center;
+}
+.hamburger span {
+  display: block; width: 22px; height: 2px; background: var(--fg); margin: 4px 0;
+  transition: transform .25s ease, opacity .25s ease;
+}
+.hamburger[aria-expanded="true"] .line1 { transform: translateY(6px) rotate(45deg); }
+.hamburger[aria-expanded="true"] .line2 { opacity: 0; }
+.hamburger[aria-expanded="true"] .line3 { transform: translateY(-6px) rotate(-45deg); }
+
+/* Mobile sheet */
+.mobile-sheet {
+  position: fixed; inset: 0; background: rgba(0,0,0,.4);
+  display: none; z-index: 60;
+}
+.mobile-sheet[aria-hidden="false"] { display: block; }
+.mobile-panel {
+  position: absolute; right: 0; top: 0; bottom: 0; width: 280px; background: var(--bg);
+  padding: 16px; border-left: 1px solid rgba(127,127,127,.2);
+}
+
+/* Footer */
+footer { border-top: 1px solid rgba(127,127,127,.2); margin-top: 2rem; padding: 1rem 0; }
+
+/* Card tiện ích */
+.card { background: var(--card); border: 1px solid rgba(127,127,127,.2); border-radius: 12px; padding: 1rem; }
+
+/* Buttons */
+.btn {
+  border: 1px solid rgba(127,127,127,.35); background: transparent; color: var(--fg);
+  padding: .5rem .75rem; border-radius: 10px; cursor: pointer;
+}
+.btn:hover { background: rgba(127,127,127,.08); }
+
+/* Inputs */
+input[type="text"], textarea {
+  width: 100%; padding: .6rem .7rem; border-radius: 10px;
+  border: 1px solid rgba(127,127,127,.35); background: var(--bg); color: var(--fg);
+}
+
+/* Skip link (A11y) */
+.skip-link {
+  position: absolute; left: 0; top: -100px; background: #ffd24d; color: #111; padding: 8px 12px; z-index: 999;
+}
+.skip-link:focus { top: 0; }
