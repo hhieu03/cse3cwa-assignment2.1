@@ -1,7 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // app/api/outputs/[id]/route.ts
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { prisma, ensureSqliteDb } from "@/lib/prisma";
+
+// Tránh cache
+export const dynamic = "force-dynamic";
 
 function toId(x: unknown) {
   const n = Number(x);
@@ -10,7 +13,9 @@ function toId(x: unknown) {
 
 export async function GET(_req: Request, { params }: any) {
   try {
+    await ensureSqliteDb();
     console.log("[api] GET /api/outputs/%s @ %s", params?.id, new Date().toISOString());
+
     const id = toId(params?.id);
     if (!id) return NextResponse.json({ error: "bad id" }, { status: 400 });
 
@@ -26,7 +31,9 @@ export async function GET(_req: Request, { params }: any) {
 
 export async function PUT(req: Request, { params }: any) {
   try {
+    await ensureSqliteDb();
     console.log("[api] PUT /api/outputs/%s @ %s", params?.id, new Date().toISOString());
+
     const id = toId(params?.id);
     if (!id) return NextResponse.json({ error: "bad id" }, { status: 400 });
 
@@ -47,7 +54,9 @@ export async function PUT(req: Request, { params }: any) {
 
 export async function DELETE(_req: Request, { params }: any) {
   try {
+    await ensureSqliteDb();
     console.log("[api] DELETE /api/outputs/%s @ %s", params?.id, new Date().toISOString());
+
     const id = toId(params?.id);
     if (!id) return NextResponse.json({ error: "bad id" }, { status: 400 });
 
